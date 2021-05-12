@@ -194,6 +194,12 @@ module.hot.accept(reloadCSS);
 
 require("./styles.css");
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // задание 1
 var delay = function delay(ms) {
   return new Promise(function (resolve) {
@@ -213,6 +219,49 @@ delay(2000).then(logger); // Resolved after 2000ms
 delay(1000).then(logger); // Resolved after 1000ms
 
 delay(1500).then(logger); // Resolved after 1500ms
+// задание 2
+
+var users = [{
+  name: 'Mango',
+  active: true
+}, {
+  name: 'Poly',
+  active: false
+}, {
+  name: 'Ajax',
+  active: true
+}, {
+  name: 'Lux',
+  active: false
+}];
+
+var toggleUserState = function toggleUserState(allUsers, userName) {
+  var updatedUsers = allUsers.map(function (user) {
+    return user.name === userName ? _objectSpread(_objectSpread({}, user), {}, {
+      active: !user.active
+    }) : user;
+  });
+  return new Promise(function (resolve) {
+    resolve(updatedUsers);
+  });
+};
+
+var logger2 = function logger2(updatedUsers) {
+  return console.table(updatedUsers);
+};
+/*
+ * Сейчас работает так
+ */
+// toggleUserState(users, 'Mango', logger2);
+// toggleUserState(users, 'Lux', logger2);
+
+/*
+ * Должно работать так
+ */
+
+
+toggleUserState(users, 'Mango').then(logger2);
+toggleUserState(users, 'Lux').then(logger2); // задание 3
 },{"./styles.css":"styles.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -241,7 +290,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60212" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58261" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
