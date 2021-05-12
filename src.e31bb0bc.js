@@ -270,7 +270,6 @@ var randomIntegerFromInterval = function randomIntegerFromInterval(min, max) {
 var makeTransaction = function makeTransaction(transaction) {
   return new Promise(function (resolve, reject) {
     var delay2 = randomIntegerFromInterval(200, 500);
-    console.log(delay2);
     setTimeout(function () {
       var canProcess = Math.random() > 0.3;
 
@@ -347,7 +346,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62702" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63803" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
