@@ -4,7 +4,7 @@ import './styles.css';
 const delay = ms => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve();
+            resolve(ms);
         }, ms)
     })
 };
