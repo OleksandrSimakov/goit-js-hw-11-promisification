@@ -58,7 +58,6 @@ const makeTransaction = transaction => {
     
   return new Promise((resolve, reject) => {
     const delay2 = randomIntegerFromInterval(200, 500);
-    console.log(delay2)
 
         setTimeout(() => {
             const canProcess = Math.random() > 0.3;
