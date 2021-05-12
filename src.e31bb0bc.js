@@ -196,7 +196,7 @@ require("./styles.css");
 
 // задание 1
 var delay = function delay(ms) {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolve) {
     setTimeout(function () {
       resolve(ms);
     }, ms);
@@ -213,27 +213,6 @@ delay(2000).then(logger); // Resolved after 2000ms
 delay(1000).then(logger); // Resolved after 1000ms
 
 delay(1500).then(logger); // Resolved after 1500ms
-// const makeOrder = dish => {
-//   const DELAY = 1000;
-//   return new Promise((resolve, reject) => {
-//     const passed = Math.random() > 0.5;
-//     setTimeout(() => {
-//       if (passed) {
-//         resolve(`✅ Вот ваш заказ: ${dish}`);
-//       }
-//       reject('❌ Упс, у нас закончились продукты');
-//     }, DELAY);
-//   });
-// };
-// makeOrder('пирожок').then(onMakeOrderSuccess).catch(onMakeOrderError);
-// function onMakeOrderSuccess(result) {
-//   console.log('onMakeOrderSuccess');
-//   console.log(result);
-// }
-// function onMakeOrderError(error) {
-//   console.log('onMakeOrderError');
-//   console.log(error);
-// }
 },{"./styles.css":"styles.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -262,7 +241,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57750" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60212" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
